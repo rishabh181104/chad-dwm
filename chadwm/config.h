@@ -150,7 +150,7 @@ static const Key keys[] = {
         SHCMD("maim --select | xclip -selection clipboard -t image/png")},
 
     { MODKEY,                           XK_space,   spawn,          SHCMD("rofi -show drun") },
-    { MODKEY,                           XK_Return,  spawn,          SHCMD("alacritty")},
+    { MODKEY,                           XK_Return,  spawn,          SHCMD("kitty")},
 
     { MODKEY|ShiftMask,                 XK_w,       spawn,          SHCMD ("feh --randomize --bg-fill ~/Wallpapers/*")},
     // toggle stuff
