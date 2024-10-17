@@ -461,6 +461,7 @@ struct NumTags {
 };
 
 /* function implementations */
+
 void applyrules(Client *c) {
   const char *class, *instance;
   unsigned int i;
