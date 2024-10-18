@@ -97,23 +97,6 @@ sudo make install
 - eww  : in eww.scss (line 1)
 - rofi : in config.rasi (line 15)
 
-# Eww
-
-- First, make sure you have copied the eww directory to your config:
-
-```
-cp -r ~/.config/chadwm/eww ~/.config/
-```
-
-- To launch the eww widget, you need the following command:
-
-```
-eww open eww
-```
-(Note: I use only alsa on my system so audio scripts on widget are alsa related, modify them to support pulseaudio)
-
-- It could be a good idea to add these lines to your autostart file, located at ~/.config/chadwm/scripts/run.sh
-
 # Credits
 
 - HUGE THANKS to [eProTaLT83](https://www.reddit.com/user/eProTaLT83). I wanted certain features in dwm like tabbar in monocle, tagpreview etc and he implemented my ideas and created patches for me! I can't even count the number of times he has helped me :v
