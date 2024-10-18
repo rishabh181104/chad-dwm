@@ -58,9 +58,20 @@ clock() {
 	printf "^c$black^^b$blue^ $(date '+%H:%M')  "
 }
 
+update_interval=1
+pkg_check_interval=3600 # Check for updates every hour
+
+update_interval=1
+pkg_check_interval=3600 # Check for updates every hour
+
+updates=$(pkg_updates)  # Initial check for updates
+last_update_time=$SECONDS
+
 while true; do
-  # Update all values every iteration
-  updates=$(pkg_updates)
+  # Get the current time
+  current_time=$SECONDS
+
+  # Update all values except package updates every iteration
   bat=$(battery)
   bright=$(brightness)
   cpu_info=$(cpu)
@@ -68,7 +79,21 @@ while true; do
   wifi=$(wlan)
   time=$(clock)
 
-  xsetroot -name "$updates $bat $bright  $cpu_info $mem_info $wifi $time"
+  # Update package information if enough time has passed
+  if ((current_time - last_update_time >= pkg_check_interval)); then
+    updates=$(pkg_updates)
+    last_update_time=$current_time
+  fi
+
+  # Update the status bar
+  xsetroot -name "$updates $bat $bright $cpu_info $mem_info $wifi $time"
   
-  sleep 1
+  # Calculate how long to sleep
+  end_time=$SECONDS
+  sleep_time=$((update_interval - (end_time - current_time)))
+  
+  # Only sleep if there's time left
+  if ((sleep_time > 0)); then
+    sleep $sleep_time
+  fi
 done
