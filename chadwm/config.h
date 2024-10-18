@@ -151,10 +151,10 @@ static const Key keys[] = {
 
     { MODKEY,                           XK_space,   spawn,          SHCMD("rofi -show drun") },
     { MODKEY,                           XK_Return,  spawn,          SHCMD("alacritty")},
-    { MODKEY,                           XK_b,       spawn,          SHCMD("firefox")},
+    { MODKEY,                           XK_b,       spawn,          SHCMD("firefox-esr")},
 
     { MODKEY|ShiftMask,                 XK_w,       spawn,          SHCMD ("feh --randomize --bg-fill ~/Wallpapers/*")},
-    { MODKEY|ShiftMask,                 XK_u,       spawn,          SHCMD ("~/./cursor.AppImage")},
+    { MODKEY,                           XK_u,       spawn,          SHCMD ("~/./cursor.AppImage")},
     // toggle stuff
     { MODKEY|ShiftMask,                 XK_b,       togglebar,      {0} },
     { MODKEY|ControlMask,               XK_t,       togglegaps,     {0} },
