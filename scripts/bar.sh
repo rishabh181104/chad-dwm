@@ -33,8 +33,12 @@ battery() {
 }
 
 brightness() {
-  printf "^c$red^   "
-  printf "^c$red^%.0f\n" $(cat /sys/class/backlight/*/brightness)
+  # Get the current brightness percentage
+  current_brightness=$(brightnessctl g)
+  max_brightness=$(brightnessctl m)
+  brightness_percent=$((current_brightness * 100 / max_brightness))
+  printf "^c$red^   "
+  printf "^c$red^%d%%\n" "$brightness_percent"
 }
 
 mem() {
@@ -55,9 +59,16 @@ clock() {
 }
 
 while true; do
+  # Update all values every iteration
+  updates=$(pkg_updates)
+  bat=$(battery)
+  bright=$(brightness)
+  cpu_info=$(cpu)
+  mem_info=$(mem)
+  wifi=$(wlan)
+  time=$(clock)
 
-  [ $interval = 0 ] || [ $(($interval % 3600)) = 0 ] && updates=$(pkg_updates)
-  interval=$((interval + 1))
-
-  sleep 1 && xsetroot -name "$updates $(battery) $(brightness) $(cpu) $(mem) $(wlan) $(clock)"
+  xsetroot -name "$updates $bat $bright  $cpu_info $mem_info $wifi $time"
+  
+  sleep 1
 done
