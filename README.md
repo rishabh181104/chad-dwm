@@ -37,7 +37,6 @@ https://user-images.githubusercontent.com/59060246/223068062-d3c9847a-8713-42c7-
 ```
 git clone https://github.com/rishabh181104/chad-dwm --depth 1  ~/.config/chadwm
 cd ~/.config/chadwm/
-mv eww ~/.config
 cd chadwm
 sudo make install
 ```
@@ -94,15 +93,7 @@ sudo make install
 # Change themes
 
 - Bar  : in bar.sh (line 9) and config.def.h (line 35)
-- eww  : in eww.scss (line 1)
 - rofi : in config.rasi (line 15)
-
-# Credits
-
-- HUGE THANKS to [eProTaLT83](https://www.reddit.com/user/eProTaLT83). I wanted certain features in dwm like tabbar in monocle, tagpreview etc and he implemented my ideas and created patches for me! I can't even count the number of times he has helped me :v
-- @fitrh helped with [colorful tag patch](https://github.com/fitrh/dwm/issues/1)
-- [6gk](https://github.com/6gk/fet.sh), eww's pure posix fetch functions taken from here
-- [mafetch](https://github.com/fikriomar16/mafetch), modified version of this was used as fetch in the screenshots
 
 # Patches
 
